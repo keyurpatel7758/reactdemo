@@ -1,0 +1,67 @@
+<html>
+    <head>
+
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+    </body>
+
+    <script type="text/babel">
+        class App extends React.Component{
+            state = {
+                name : 'Keyur',
+                dept : 'Deltek'
+            }
+
+            handleClick = (e) => {
+                console.log('Hi', new Date());
+                this.setState({
+                    'name':'Ashish'
+                });
+                //console.log(e.target);
+                console.log(this.state);
+            }
+
+            handleMouseOver = (e) => {
+                console.log(e.target, e.pageX);
+                console.log(this.state);
+            }
+
+            handleChange = (e) =>{
+                this.setState({
+                    'name' : e.target.value
+                });
+            }
+
+            handleOnSubmit = (e) => {
+                e.preventDefault();
+                console.log('Form submited !');
+            }
+
+            render(){
+                return (
+                    <div className="app-content">
+                        <h1>
+                            Hello Ninjas,
+                        </h1>
+                        <h4> My name is {this.state.name}, I am working in {this.state.dept}. </h4>
+
+                        <button onClick={this.handleClick}>Click Me</button>
+                        <button onMouseOver={this.handleMouseOver}>Hover Me</button>
+
+                        <form>
+                            <input type="text" onChange={this.handleChange}/>
+                            <button onClick={this.handleOnSubmit}>Submit Me</button>
+                        </form>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<App/>, document.getElementById('app'));
+    </script type="text/babel">
+
+</html>
