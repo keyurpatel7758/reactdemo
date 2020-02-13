@@ -23,6 +23,7 @@ class Dashboard extends Component{
 }
 
 const mapStateToProps = (state) => {
+    console.log(state);
     return {
         projects : state.project.projectList,
         token : state.auth.token

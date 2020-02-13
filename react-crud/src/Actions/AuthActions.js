@@ -12,9 +12,9 @@ export const signIn = (credentials) => {
                 Username: credentials.email,
                 Password: credentials.password
             }).then((data) => {
-                //console.log(data);
-                var token = data.data.token;
-                dispatch({ type: 'LOGIN_SUCCESS', token : token });
+                console.log(data);
+                var userData = data.data;
+                dispatch({ type: 'LOGIN_SUCCESS', userData : userData });
             }).catch((err) => {
                 dispatch({ type: 'LOGIN_ERROR', err });
             });

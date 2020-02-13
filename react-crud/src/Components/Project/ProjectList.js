@@ -1,17 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ProjectSummary from './ProjectSummary'
+import { fetchAllProjects } from '../../Actions/ProjectActions';
+import { connect } from 'react-redux';
 
-const ProjectList = (props) => {
+class ProjectList extends Component {
 
-    return(
-        <div className="project-list section">
-                {props.projects && props.projects.map(p=>{
-                    return(
+    componentDidMount(){
+        this.props.fetchAllProjects();
+    }
+
+    render() {
+        return (
+            <div className="project-list section">
+                {this.props.projects && this.props.projects.map(p => {
+                    return (
                         <ProjectSummary project={p} key={p.id}></ProjectSummary>
                     )
                 })}
-        </div>
-    )
+            </div>
+        )
+    }
 }
 
-export default ProjectList;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchAllProjects: () => dispatch(fetchAllProjects())
+    }
+}
+
+const mapStateToProps = (state) => {
+    console.log(state);
+    return {
+        projects: state.project.projectList
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectList);

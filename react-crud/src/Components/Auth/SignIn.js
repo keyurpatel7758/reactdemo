@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { signIn } from '../../Actions/AuthActions'
-import {connect} from 'react-redux'
-import {Redirect} from 'react-router-dom'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
 class SignIn extends Component {
 
@@ -43,6 +43,9 @@ class SignIn extends Component {
                         </div>
                     </form>
                 </div>
+
+                
+
             </div>
         )
     }

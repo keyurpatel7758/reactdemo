@@ -1,12 +1,23 @@
 const initState = {
-    projectList : [
-        {id:1,title:'Project 1'},
-        {id:2,title:'Project 2'},
-    ]
+    projectList: null
 }
 const ProjectReducer = (state = initState, action) => {
 
-    return state;
+    switch (action.type) {
+        case 'PROJECTSGET_SUCCESS':
+            return{
+                ...state,
+                projectList: action.projects
+            }
+            case 'PROJECTGET_ERROR':
+                return{
+                    ...state,
+                    projectList: action.projects
+                }
+        default:
+            return state;
+
+    }
 }
 
 export default ProjectReducer;

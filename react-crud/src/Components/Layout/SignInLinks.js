@@ -10,7 +10,7 @@ const SignInLinks = (props) => {
                 <li><NavLink to='/create'>New Project</NavLink></li>
                 <li><a onClick={props.signout}>Log out</a></li>
                 <li><NavLink to='/' className="btn btn-floating pink lighten-1">
-                    KPS
+                    {props.shortName}
                 </NavLink></li>
             </ul>
         </div>
@@ -22,4 +22,16 @@ const mapDispatchToProps = (dispatch) => {
         signout: () => dispatch(signOut())
     }
 }
-export default connect(null, mapDispatchToProps)(SignInLinks);
+
+const mapStateToProps = (state) => {
+    var userData = state.auth.userData;
+    var firstName = userData.firstName;
+    var lastName = userData.lastName;
+    var shortName = firstName.charAt(0) + lastName.charAt(0);
+
+    return{
+        shortName : shortName    
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignInLinks);
