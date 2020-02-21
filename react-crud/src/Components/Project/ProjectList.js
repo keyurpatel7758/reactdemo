@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 
 class ProjectList extends Component {
 
-    componentDidMount(){
+    componentDidMount() {
+        if (this.props.projects && this.props.projects.length > 0)
+            return;
         this.props.fetchAllProjects();
     }
 

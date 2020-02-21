@@ -8,7 +8,7 @@ const ProjectSummary = (props) => {
                 <span className="card-title ">{project.title}</span>
                 <p>{project.content}</p>
 
-                <button className="btn waves-effect waves-light" name="action" onClick={}>Edit
+                <button className="btn waves-effect waves-light" name="action">Edit
                     <i className="material-icons right">edit</i>
                 </button>
                 <button className="btn waves-effect waves-light" name="action">Delete

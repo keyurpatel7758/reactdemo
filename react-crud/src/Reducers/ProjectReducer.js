@@ -14,6 +14,12 @@ const ProjectReducer = (state = initState, action) => {
                     ...state,
                     projectList: action.projects
                 }
+                case 'CREATE_PROJECT_SUCCESS':
+                    const list = [...state.projectList, action.project];
+                    return{
+                        ...state,
+                        projectList: list
+                    }
         default:
             return state;
 

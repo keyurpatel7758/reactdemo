@@ -4,6 +4,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Navbar from './Components/Layout/Navbar'
 import Dashboard from './Components/Dashboard/Dashboard'
 import SignIn from './Components/Auth/SignIn';
+import CreateProject from './Components/Project/CreateProject';
+import EditProject from './Components/Project/EditProject';
 
 function App() {
   return (
@@ -12,8 +14,10 @@ function App() {
         <Navbar></Navbar>
         <Switch>
           <Route exact path='/' component={Dashboard} />
-          <Route to="/login" component={SignIn}></Route>
-          <Route to="/logout" component={Dashboard}></Route>
+          <Route path="/login" component={SignIn}></Route>
+          <Route path="/logout" component={Dashboard}></Route>
+          <Route path="/createproject" component={CreateProject}></Route>
+          <Route path="/editproject" component={EditProject}></Route>
         </Switch>
       </div>
     </BrowserRouter>
